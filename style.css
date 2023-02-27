@@ -23,12 +23,17 @@ header, form{
 }
 
 form input, form button{
+    
     padding: 0.5rem;
     padding-left: 1rem;
     font-size: 1.8rem;
     border: none;
     background: white;
     border-radius: 2rem;
+}
+
+form input{
+    width: 100%;
 }
 
 form button{
@@ -77,6 +82,7 @@ form button:hover{
     flex: 1;
 }
 
+.edit-btn,
 .trash-btn,
 .complete-btn{
     color: white;
@@ -90,6 +96,10 @@ form button:hover{
     background: rgb(255, 200, 0);
 }
 
+.edit-btn{
+    background: rgb(204, 2, 255);
+}
+
 .trash-btn{
     border-top-right-radius: 1.75rem;
     border-bottom-right-radius: 1.75rem;
@@ -100,7 +110,7 @@ form button:hover{
     padding: 0rem 0.5rem;
 }
 
-.fa-trash, .fa-check-circle{
+.fa-trash, .fa-check-circle, .fa-fa-pen-to-square{
     pointer-events: none;
 }
 

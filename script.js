@@ -2,11 +2,13 @@ const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
+const editOption = document.querySelector(".edit-todo");
 
 document.addEventListener("DOMContentLoaded", getLocalTodos);
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
 filterOption.addEventListener("change", filterTodo);
+editOption.addEventListener("click", editTodo);
 
 function addTodo(event){
     event.preventDefault();
@@ -19,6 +21,11 @@ function addTodo(event){
 
     // adding local storage
     saveLocalTodos(todoInput.value);
+
+    const editButton = document.createElement("button");
+    editButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
+    editButton.classList.add("edit-btn");
+    todoDiv.appendChild(editButton);
 
     const completedButton = document.createElement("button");
     completedButton.innerHTML = '<i class="fas fa-check-circle"></li>';
@@ -51,6 +58,10 @@ function deleteCheck(e){
         const todo = item.parentElement;
         todo.classList.add("completed");
     }
+}
+
+function editTodo(e){
+    
 }
 
 function filterTodo(e){
@@ -107,6 +118,11 @@ function getLocalTodos(){
         newTodo.innerHTML = todo;
         newTodo.classList.add("todo-item");
         todoDiv.appendChild(newTodo);
+
+        const editButton = document.createElement("button");
+        editButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
+        editButton.classList.add("edit-btn");
+        todoDiv.appendChild(editButton);
 
         const completedButton = document.createElement("button");
         completedButton.innerHTML = '<i class="fas fa-check-circle"></li>';
